@@ -5,6 +5,8 @@ public class Falling : MonoBehaviour {
 
     public IEnumerator fall(float destY)
     {
+        GetComponent<RotateOnClick>().ableToRotate = false;
+
         Vector3 pos = transform.position;
         while(transform.position.y != destY)
         {
@@ -14,7 +16,8 @@ public class Falling : MonoBehaviour {
 
             yield return new WaitForSeconds(0.5f);
         }
-        
+
+        GetComponent<RotateOnClick>().ableToRotate = true;
         yield break;
     }
 
